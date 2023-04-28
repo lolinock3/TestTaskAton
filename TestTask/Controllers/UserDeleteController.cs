@@ -20,7 +20,7 @@ namespace TestTask.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public IActionResult DeleteUser ([Required(ErrorMessage = "Требуется ввести логин")] string login,
+        public ActionResult DeleteUser ([Required(ErrorMessage = "Требуется ввести логин")] string login,
             [Required(ErrorMessage = "Требуется ввести пароль")] string password,
             [Required(ErrorMessage = "Требуется ввести логин")] string userToDelete)
         {
