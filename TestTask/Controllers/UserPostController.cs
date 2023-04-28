@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using TestTask.Interfaces;
 using TestTask.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace TestTask.Controllers
 {
@@ -17,11 +18,10 @@ namespace TestTask.Controllers
         }
 
         [HttpPost("CreateUser")]
-        [ProducesResponseType(204)]
-        [ProducesResponseType(400)]
-        public IActionResult CreateNewUser(string initiatorLogin, string initiatorPassword,
-             string userLogin, string userPassword, string userName,
-            int userGender, bool isAdmin, DateTime? userBday = null)
+        
+        public IActionResult CreateNewUser([Required] string initiatorLogin, [Required] string initiatorPassword,
+             [Required] string userLogin, [Required] string userPassword, [Required] string userName,
+            [Required] int userGender, [Required] bool isAdmin, DateTime? userBday = null)
         {
             
             var adminCheck = _userRepository.IsAdmin(initiatorLogin, initiatorPassword);
